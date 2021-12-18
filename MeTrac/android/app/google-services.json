@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "600605450717",
+    "project_id": "metrac-cab99",
+    "storage_bucket": "metrac-cab99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600605450717:android:8813a178892e3e99835634",
+        "android_client_info": {
+          "package_name": "com.MeTrac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600605450717-i89auvajce2pfh0gd0c4is2rv8v0imdn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmlL9f2Y9NYHu-O8l5DjKyOGh3XfxIJm4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600605450717-i89auvajce2pfh0gd0c4is2rv8v0imdn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
