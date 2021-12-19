@@ -38,7 +38,7 @@ const Metro = ({navigation}) => {
                 name="arrow-circle-down"
                 size={70}
                 color="#FFBC34"
-                onPress={() => navigation.navigate('Bus')}
+                onPress={() => navigation.navigate('Track')}
               />
             </View>
           </View>
