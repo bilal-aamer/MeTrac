@@ -29,15 +29,15 @@
    ## How To Use
    
    ### Prerequisites
-    *Reactive Native
-    *Firebase
-    *Nord
-    *Vscode
+    * Reactive Native
+    * Firebase
+    * Nord
+    * Vscode
   ### Installation
  * #### Backend
     Download the required dependencies using -
 
-    ``` npm install ``` // Inside the backend folder   
+    ``` npm install    // Inside the backend folder   ```
 
     Dependencies will be downloaded in the node_modules folder
     
