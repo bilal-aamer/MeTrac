@@ -1,18 +1,18 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../screens/Home';
+import Metro from '../screens/Metro';
 
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const MetroStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Bottomtabs" component={HomeScreen} />
+      <Stack.Screen name="Bottomtabs" component={Metro} />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default MetroStack;

@@ -26,13 +26,15 @@ const Overlay = ({navigation}) => {
           <Text style={{marginBottom: 5, fontSize: 22}}>
             Ad-Free and No hidden Costs
           </Text>
-          <Icon.Button
-            style={{backgroundColor: 'snow'}}
-            name="arrow-circle-right"
-            color="#FFBC34"
-            size={45}
-            onPress={() => navigation.navigate('Bottomtabs')}
-          />
+          <View style={styles.iconContainer}>
+            <Icon.Button
+              style={{backgroundColor: 'snow'}}
+              name="arrow-circle-right"
+              color="#FFBC34"
+              size={45}
+              onPress={() => navigation.navigate('Bottomtabs')}
+            />
+          </View>
         </>
       ),
     },
@@ -118,6 +120,11 @@ const useStyles = makeStyles(() => {
       alignSelf: 'flex-end',
     },
     container: {alignSelf: 'flex-end'},
+    iconContainer: {
+      width: windowWIdth,
+      alignItems: 'flex-end',
+      marginRight: 60,
+    },
   };
 });
 
