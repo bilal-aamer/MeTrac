@@ -44,6 +44,7 @@
     Dependencies will be downloaded in the node_modules folder
     
  * #### Frontend
+    Here, we are using React Native to develop the UI/UX of the whole application. Whilst designing it in figma.
 
 
 
