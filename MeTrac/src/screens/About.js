@@ -17,7 +17,7 @@ const About = () => {
         <View style={styles.box}>
           <Text style={{fontWeight: 'bold', fontSize: 18}}>About Us</Text>
         </View>
-        <View style={[styles.box, {paddingTop: 32, padding: 24, height: 500}]}>
+        <View style={[styles.box, {paddingTop: 32, padding: 24, height: 500}]}> 
           <ScrollView>
             <Text style={{paddingBottom: 64}}>
               <Text style={{fontWeight: 'bold'}}>ABOUT APP :</Text>
@@ -44,9 +44,9 @@ const About = () => {
               <Text style={{fontWeight: 'bold'}}>OUR MISSION :</Text>
               {'\n'}
               {'\n'}
-              To decide our strength in the present and up and coming
-              programming innovations by conveying modern arrangements that keep
-              them serving and remaining for more.
+              To decide our strength in the present and up coming programming
+              innovations by conveying modern arrangements that keep them
+              serving and remaining for more.
               {'\n'}
               {'\n'}
               <Text style={{fontWeight: 'bold'}}>OUR VISION :</Text>

@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "600605450717",
-    "project_id": "metrac-cab99",
-    "storage_bucket": "metrac-cab99.appspot.com"
+    "project_number": "694043308881",
+    "project_id": "metrac-b0023",
+    "storage_bucket": "metrac-b0023.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:600605450717:android:8813a178892e3e99835634",
+        "mobilesdk_app_id": "1:694043308881:android:e4f607236dda7abf815970",
         "android_client_info": {
-          "package_name": "com.MeTrac"
+          "package_name": "com.metrac"
         }
       },
       "oauth_client": [
         {
-          "client_id": "600605450717-i89auvajce2pfh0gd0c4is2rv8v0imdn.apps.googleusercontent.com",
+          "client_id": "694043308881-2pa0a6av2s938fgd620elid4652m5lff.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBmlL9f2Y9NYHu-O8l5DjKyOGh3XfxIJm4"
+          "current_key": "AIzaSyDcdCyBt8F6wdCUpd7FNRsHjtrC6ggUBq0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "600605450717-i89auvajce2pfh0gd0c4is2rv8v0imdn.apps.googleusercontent.com",
+              "client_id": "694043308881-2pa0a6av2s938fgd620elid4652m5lff.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

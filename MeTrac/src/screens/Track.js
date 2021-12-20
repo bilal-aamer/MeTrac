@@ -5,11 +5,23 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Pin from '../../assets/pin.svg';
 
+import database from '@react-native-firebase/database';
+
 const Track = () => {
   const [fnum, setFnum] = useState('');
 
-  const onChange = num => {
-    setFnum(num);
+  const onChange = text => {
+    setFnum(text);
+  };
+
+  const addToFirebase = () => {
+    database()
+      .ref('/users')
+      .push({
+        name: fnum,
+        age: 31,
+      })
+      .then(() => console.log('Data set.'));
   };
 
   const styles = useStyles();
@@ -34,7 +46,7 @@ const Track = () => {
         <View style={{paddingHorizontal: 24}}>
           <Text style={styles.Text}>Enter your friend's phone-number : </Text>
           <TextInput
-            onChangeText={e => onChange(e.value)}
+            onChangeText={onChange}
             value={fnum}
             keyboardType="numeric"
             style={{marginTop: 16, fontSize: 22, paddingBottom: 24}}
@@ -46,6 +58,7 @@ const Track = () => {
             titleStyle={styles.buttonText}
             buttonStyle={styles.buttonStyle}
             title="Track"
+            onPress={addToFirebase}
           />
         </View>
       </ScrollView>
