@@ -1,33 +1,56 @@
 import React from 'react';
-import {View, Text, Dimensions, ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+  BackHandler,
+} from 'react-native';
 import {makeStyles, withTheme} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Pin from '../../assets/pin.svg';
 
-const Bus = () => {
+const User = ({navigation}) => {
   const styles = useStyles();
+
+  const onExit = () => BackHandler.exitApp();
+
+  const onGeneral = () => navigation.navigate('general');
+
+  const onPrivacy = () => navigation.navigate('privacy');
+
+  const onTC = () => navigation.navigate('tc');
+
+  const onAbout = () => navigation.navigate('aboutus');
 
   const settingsData = [
     {
       name: 'General',
       icon: 'settings',
+      onPress: onGeneral,
     },
     {
       name: 'Privacy & Security',
       icon: 'security',
+      onPress: onPrivacy,
     },
     {
       name: 'About Us',
       icon: 'people',
+      onPress: onAbout,
     },
     {
-      name: 'Terms and Conditions',
+      name: 'Terms of Use',
       icon: 'app-settings-alt',
+      onPress: onTC,
     },
     {
       name: 'Exit',
       icon: 'logout',
+      onPress: onExit,
     },
   ];
 
@@ -35,7 +58,7 @@ const Bus = () => {
 
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity style={styles.item}>
+      <TouchableOpacity style={styles.item} onPress={item.onPress}>
         <Icon name={item.icon} size={28} style={{marginRight: 16}} />
         <Text style={styles.itemText}>{item.name}</Text>
       </TouchableOpacity>
@@ -131,4 +154,4 @@ const useStyles = makeStyles(() => {
   };
 });
 
-export default withTheme(Bus, '');
+export default withTheme(User, '');

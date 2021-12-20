@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {Text, View} from 'react-native';
 import Train from './screens/Train';
 import Bus from './screens/Bus';
-import User from './screens/User';
+import UserStack from './stacks/UserStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -124,8 +124,8 @@ const BottomTabs = () => {
             </View>
           ),
         }}
-        name="User"
-        component={User}
+        name="Settings"
+        component={UserStack}
       />
     </Tab.Navigator>
   );

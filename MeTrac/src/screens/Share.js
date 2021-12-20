@@ -4,14 +4,9 @@ import {Button, makeStyles, withTheme} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Pin from '../../assets/pin.svg';
+import Sharesvg from '../../assets/currLocation.svg';
 
-const Track = () => {
-  const [fnum, setFnum] = useState('');
-
-  const onChange = num => {
-    setFnum(num);
-  };
-
+const Share = () => {
   const styles = useStyles();
 
   return (
@@ -28,26 +23,17 @@ const Track = () => {
             Reminder
           </Text>
           <Text style={{lineHeight: 24, fontSize: 16, marginBottom: 12}}>
-            Ask your friend to share his/her location to track.
+            This allows others to see your Location. Press{' '}
+            <Text style={{fontWeight: 'bold'}}>Share</Text> to start.
           </Text>
         </View>
-        <View style={{paddingHorizontal: 24}}>
-          <Text style={styles.Text}>Enter your friend's phone-number : </Text>
-          <TextInput
-            onChangeText={e => onChange(e.value)}
-            value={fnum}
-            keyboardType="numeric"
-            style={{marginTop: 16, fontSize: 22, paddingBottom: 24}}
-            underlineColorAndroid="black"
-            placeholder="+ 91 "
-          />
-          <Button
-            containerStyle={styles.button}
-            titleStyle={styles.buttonText}
-            buttonStyle={styles.buttonStyle}
-            title="Track"
-          />
-        </View>
+        <Sharesvg width={200} height={200} style={{alignSelf: 'center'}} />
+        <Button
+          containerStyle={styles.button}
+          titleStyle={styles.buttonText}
+          buttonStyle={styles.buttonStyle}
+          title="Share"
+        />
       </ScrollView>
     </View>
   );
@@ -110,4 +96,4 @@ const useStyles = makeStyles(() => {
   };
 });
 
-export default withTheme(Track, '');
+export default withTheme(Share, '');
