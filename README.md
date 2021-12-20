@@ -1,7 +1,7 @@
 # MeTrac
 ![Logo](https://github.com/bilal-aamer/MeTrac/blob/cee74025cdc456acd293832dc6f674aec0c36c95/MeTrac/assets/logo.png?raw=true)
 
->MeTrac :
+>MeTrac :  Streamlined sharing of travel location via any mode of transport.
 ----
 ### Table of Contents
 
