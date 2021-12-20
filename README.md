@@ -34,6 +34,8 @@
     * Nord
     * Vscode
   ### Installation
+ * To use this application one will have to satisfy the above  prerequisites.
+ 
  * #### Backend
     Download the required dependencies using -
 
