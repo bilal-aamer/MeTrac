@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, Dimensions, ScrollView, TextInput} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  ScrollView,
+  TextInput,
+  Alert,
+} from 'react-native';
 import {Button, makeStyles, withTheme} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -7,19 +14,76 @@ import Pin from '../../assets/pin.svg';
 
 import database from '@react-native-firebase/database';
 
-const Track = () => {
+const Track = props => {
   const [fnum, setFnum] = useState('');
+
+  const [cnt, setCnt] = useState(0);
+
+  const [arr, setArry] = useState([]);
+
+  React.useEffect(() => {
+    database()
+      .ref('/users/' + props.uid)
+      .once('value')
+      .then(snapshot => {
+        const data = snapshot.val();
+
+        if (Object.keys(data).length !== 2) {
+          setArry(data[Object.keys(data)[2]]);
+        }
+      });
+  });
 
   const onChange = text => {
     setFnum(text);
   };
 
-  const addToFirebase = () => {
+  const permissions = () => {
+    let allow = false;
     database()
       .ref('/users')
-      .push({
-        name: fnum,
-        age: 31,
+      .once('value')
+      .then(snapshot => {
+        const data = snapshot.val();
+
+        Object.keys(data).forEach(key => {
+          console.log(data[key].mob, ' ', data[key].shareAccess, fnum);
+
+          if (data[key].mob == fnum && data[key].shareAccess) {
+            allow = true;
+            addToFirebase();
+          }
+        });
+
+        if (!allow) {
+          Alert.alert(
+            'Reminder',
+            'Ask your friend to share his/her location to track !',
+            [
+              {
+                text: 'OK',
+                onPress: () => null,
+              },
+            ],
+          );
+        }
+      });
+  };
+
+  const addToFirebase = () => {
+    let array = arr,
+      count = cnt;
+
+    array[count] = fnum;
+
+    setArry(array);
+    setCnt(cnt + 1);
+
+    database()
+      .ref('/users/' + props.uid)
+      .update({
+        fmob: arr,
+        cnt: count + 1,
       })
       .then(() => console.log('Data set.'));
   };
@@ -58,7 +122,7 @@ const Track = () => {
             titleStyle={styles.buttonText}
             buttonStyle={styles.buttonStyle}
             title="Track"
-            onPress={addToFirebase}
+            onPress={permissions}
           />
         </View>
       </ScrollView>

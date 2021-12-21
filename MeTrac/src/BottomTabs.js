@@ -9,7 +9,7 @@ import UserStack from './stacks/UserStack';
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabs = () => {
+const BottomTabs = ({route}) => {
   const focusColor = 'red';
   const nonFocusColor = 'rgba(0,0,0,0.4)';
 
@@ -50,7 +50,7 @@ const BottomTabs = () => {
           ),
         }}
         name="Metro"
-        component={MetroStack}
+        children={() => <MetroStack uid={route.params.uid} />}
       />
       <Tab.Screen
         options={{

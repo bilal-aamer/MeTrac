@@ -1,13 +1,39 @@
 import React, {useState} from 'react';
-import {View, Text, Dimensions, ScrollView, TextInput} from 'react-native';
+import {View, Text, Dimensions, ScrollView} from 'react-native';
 import {Button, makeStyles, withTheme} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Pin from '../../assets/pin.svg';
 import Sharesvg from '../../assets/currLocation.svg';
 
-const Share = () => {
+import database from '@react-native-firebase/database';
+
+const Share = props => {
   const styles = useStyles();
+
+  const [shareAccess, setShareAccess] = React.useState(false);
+
+  const toggleShare = () => {
+    database()
+      .ref('/users/' + props.uid)
+      .update({
+        shareAccess: !shareAccess,
+      });
+    setShareAccess(!shareAccess);
+  };
+
+  React.useEffect(() => {
+    database()
+      .ref('/users/' + props.uid)
+      .once('value')
+      .then(snapshot => {
+        const data = snapshot.val();
+
+        if (Object.keys(data).length !== 2) {
+          setShareAccess(data[Object.keys(data)[0]]);
+        }
+      });
+  });
 
   return (
     <View style={styles.main}>
@@ -32,7 +58,8 @@ const Share = () => {
           containerStyle={styles.button}
           titleStyle={styles.buttonText}
           buttonStyle={styles.buttonStyle}
-          title="Share"
+          title={shareAccess ? 'stop sharing' : 'Share'}
+          onPress={toggleShare}
         />
       </ScrollView>
     </View>

@@ -6,15 +6,15 @@ import Share from '../screens/Share';
 
 const Stack = createNativeStackNavigator();
 
-const MetroStack = () => {
+const MetroStack = props => {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}>
       <Stack.Screen name="Bottomtabs" component={Metro} />
-      <Stack.Screen name="Track" component={Track} />
-      <Stack.Screen name="Share" component={Share} />
+      <Stack.Screen name="Track" children={() => <Track uid={props.uid} />} />
+      <Stack.Screen name="Share" children={() => <Share uid={props.uid} />} />
     </Stack.Navigator>
   );
 };
