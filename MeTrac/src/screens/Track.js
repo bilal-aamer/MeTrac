@@ -13,8 +13,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Pin from '../../assets/pin.svg';
 
 import database from '@react-native-firebase/database';
+import {useNavigation} from '@react-navigation/native';
 
 const Track = props => {
+  const navigation = useNavigation();
+
   const [fnum, setFnum] = useState('');
 
   const [cnt, setCnt] = useState(0);
@@ -28,8 +31,8 @@ const Track = props => {
       .then(snapshot => {
         const data = snapshot.val();
 
-        if (Object.keys(data).length !== 2) {
-          setArry(data[Object.keys(data)[2]]);
+        if (Object.keys(data).length !== 4) {
+          setArry(data[Object.keys(data)[1]]);
         }
       });
   });
@@ -52,6 +55,7 @@ const Track = props => {
           if (data[key].mob == fnum && data[key].shareAccess) {
             allow = true;
             addToFirebase();
+            navigation.navigate('Tracker', {fnum: fnum});
           }
         });
 

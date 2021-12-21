@@ -7,6 +7,7 @@ import {
   Modal,
   TextInput,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import {withTheme, makeStyles, Button} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -18,8 +19,11 @@ import database from '@react-native-firebase/database';
 const Overlay = ({navigation}) => {
   const styles = useStyles();
   const windowWIdth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
 
   const [modalVisible, setModalVisible] = React.useState(false);
+
+  const [showLoader, setShowLoader] = React.useState(false);
 
   const [number, setNumber] = React.useState('');
   const [len, setLen] = React.useState(0);
@@ -31,6 +35,7 @@ const Overlay = ({navigation}) => {
 
   const validnum = () => {
     setModalVisible(false);
+    setShowLoader(true);
     addToFirebase();
   };
 
@@ -56,6 +61,7 @@ const Overlay = ({navigation}) => {
           });
 
         if (isPresent) {
+          setShowLoader(false);
           Alert.alert('Update', 'PhoneNumber Already Exists!', [
             {
               text: 'Cancel',
@@ -64,10 +70,13 @@ const Overlay = ({navigation}) => {
             },
             {
               text: 'OK',
-              onPress: () => navigation.navigate('Bottomtabs', {uid: uid}),
+              onPress: () => {
+                navigation.navigate('Bottomtabs', {uid: uid});
+              },
             },
           ]);
         } else {
+          setShowLoader(false);
           addNumber();
         }
       });
@@ -81,6 +90,8 @@ const Overlay = ({navigation}) => {
       .push({
         mob: number,
         shareAccess: false,
+        src: '',
+        dest: '',
       })
       .then(() => {
         console.log('Data set.');
@@ -212,6 +223,24 @@ const Overlay = ({navigation}) => {
           </View>
         </View>
       </Modal>
+      {showLoader && (
+        <View
+          style={{
+            position: 'absolute',
+            top: 0,
+            width: windowWIdth,
+            height: windowHeight + 60,
+            justifyContent: 'center',
+            backgroundColor: 'rgba(0,0,0,0.9)',
+          }}>
+          <ActivityIndicator
+            animating={true}
+            style={styles.indicator}
+            size="large"
+            color="#FFBC34"
+          />
+        </View>
+      )}
     </View>
   );
 };

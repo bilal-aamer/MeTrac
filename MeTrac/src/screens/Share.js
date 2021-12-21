@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {View, Text, Dimensions, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  Dimensions,
+  ScrollView,
+  Modal,
+  TextInput,
+} from 'react-native';
 import {Button, makeStyles, withTheme} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,9 +16,28 @@ import Sharesvg from '../../assets/currLocation.svg';
 import database from '@react-native-firebase/database';
 
 const Share = props => {
+  const onSubmit = () => {
+    setModalVisible(false);
+    toggleShare();
+    database()
+      .ref('/users/' + props.uid)
+      .update({
+        src: src,
+        dest: dest,
+      });
+  };
+
   const styles = useStyles();
 
-  const [shareAccess, setShareAccess] = React.useState(false);
+  const windowWIdth = Dimensions.get('window').width;
+
+  const [shareAccess, setShareAccess] = useState(false);
+
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const [src, setSrc] = useState('');
+
+  const [dest, setDest] = useState('');
 
   const toggleShare = () => {
     database()
@@ -29,8 +55,8 @@ const Share = props => {
       .then(snapshot => {
         const data = snapshot.val();
 
-        if (Object.keys(data).length !== 2) {
-          setShareAccess(data[Object.keys(data)[0]]);
+        if (Object.keys(data).length !== 4) {
+          setShareAccess(data[Object.keys(data)[2]]);
         }
       });
   });
@@ -59,9 +85,64 @@ const Share = props => {
           titleStyle={styles.buttonText}
           buttonStyle={styles.buttonStyle}
           title={shareAccess ? 'stop sharing' : 'Share'}
-          onPress={toggleShare}
+          onPress={shareAccess ? toggleShare : () => setModalVisible(true)}
         />
       </ScrollView>
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+        <View
+          style={{
+            width: windowWIdth,
+            flex: 1,
+            backgroundColor: 'rgba(0,0,0,0.7)',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <View
+            style={{
+              width: windowWIdth - 80,
+              height: 340,
+              backgroundColor: 'white',
+              paddingTop: 30,
+              paddingHorizontal: 24,
+              borderRadius: 16,
+              elevation: 10,
+            }}>
+            <Text>Enter your source station : </Text>
+            <TextInput
+              onChangeText={text => setSrc(text)}
+              value={src}
+              style={{
+                marginTop: 4,
+                fontSize: 22,
+                paddingBottom: 12,
+                marginBottom: 24,
+              }}
+              underlineColorAndroid="black"
+              placeholder="source"
+            />
+            <Text>Enter your destination station : </Text>
+            <TextInput
+              onChangeText={text => setDest(text)}
+              value={dest}
+              style={{
+                marginTop: 4,
+                fontSize: 22,
+                paddingBottom: 12,
+                marginBottom: 24,
+              }}
+              underlineColorAndroid="black"
+              placeholder="destination"
+            />
+            <Button
+              containerStyle={[styles.button, {marginVertical: 24}]}
+              titleStyle={styles.buttonText}
+              buttonStyle={styles.buttonStyle}
+              title="Submit"
+              onPress={onSubmit}
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
