@@ -34,22 +34,23 @@
     * Nord
     * Vscode
   ### Installation
+ * To use this application one will have to satisfy the above  prerequisites.
+ 
  * #### Backend
-    Download the required dependencies using -
-
-    ``` npm install    // Inside the backend folder   ```
-
-    Dependencies will be downloaded in the node_modules folder
+    We are currently using the Firebase as most of the backend. However, we are also commited to expand to our own web hosting, for a more personalised end experiance.
     
  * #### Frontend
+    Here, we are using React Native to develop the UI/UX of the whole application. Whilst designing it in figma.
 
 
 
 ----
   ### Screnshots
+  The following are some of the key screens in the app.
     
------  
+-----
   ### Demo
+  
     
     
   
