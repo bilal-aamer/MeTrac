@@ -37,6 +37,10 @@
     
  * #### Frontend
     Here, we are using React Native to develop the UI/UX of the whole application. Whilst designing it in figma.
+    
+    ``` npm install // installs all the required dependencies ```
+    ``` npx react-native run-android  // builds the app ```
+    ``` react-native start // starts the app in emulator ```
 
 
 
