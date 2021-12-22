@@ -7,7 +7,7 @@
 
 - [Description](#description)
 - [Features](#features)
-- [How To Use](#how-to-use)
+- [Prerequisites](#prerequisites)
 - [Screenshots](#screenshots)
 - [Demo](#demo)
 
@@ -23,12 +23,8 @@
   - Geo location tracking
   - end-to-end encrypted communication between the user and server
   
-  **So what's stopping you?**
-   Go check out the [How to Use](#how-to-use) to know more about the application.
    
-   ## How To Use
-   
-   ### Prerequisites
+  ## Prerequisites
     * Reactive Native
     * Firebase
     * Nord
@@ -45,8 +41,14 @@
 
 
 ----
-  ### Screnshots
+  ## Screenshots
   The following are some of the key screens in the app.
+  
+  <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_20211221-114214_MeTrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_20211221-114222_MeTrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_20211221-114230_MeTrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_20211221-114238_MeTrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-21-16-08-16-199_com.metrac%20(1).jpg" width="150" height="300"> 
+  
+  <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-21-16-09-22-456_com.metrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-21-16-10-04-606_com.metrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-21-16-10-29-775_com.metrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-21-16-11-02-911_com.metrac%20(1).jpg" width="150" height="300"> <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-22-10-37-36-553_com.metrac.jpg" width="150" height="300" >
+ <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-21-16-11-29-505_com.metrac%20(2).jpg" width="150" height="300">
+ <img src="https://github.com/bilal-aamer/MeTrac/blob/app/MeTrac/assets/Screenshot_2021-12-21-16-12-22-485_com.metrac%20(1).jpg" width="150" height="300">
     
 -----
   ### Demo
@@ -56,3 +58,4 @@
   
   
  
+<
